@@ -10,6 +10,11 @@ class ChatController {
         $view = new View();
 
         $login = $session->get('login');
+
+        if (!$login) {
+            header('Location: /login');
+        }
+
         $message = $post->get("user_message");
 
         if($message && $login){
